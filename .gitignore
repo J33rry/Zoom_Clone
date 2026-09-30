@@ -1,0 +1,19 @@
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local data & secrets
+*.db
+.env
+.env.local
+
+# Node / Next.js (frontend/.gitignore covers the rest)
+node_modules/
+.next/

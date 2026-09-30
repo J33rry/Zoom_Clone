@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Design tokens sampled from the Zoom Workplace screenshots in /Designs. */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-zoom-blue: #0b5cff;
+  --color-zoom-blue-hover: #0a4fdc;
+  --color-zoom-blue-soft: #e9f0ff;
+  --color-zoom-orange: #ff6d22;
+  --color-zoom-orange-light: #ff8a3d;
+
+  --color-ink: #131619;
+  --color-ink-2: #232333;
+  --color-muted: #6e7680;
+  --color-subtle: #8f97a3;
+  --color-line: #e4e6eb;
+  --color-line-strong: #cfd3da;
+  --color-canvas: #f1f2f5;
+  --color-hover: #f3f4f6;
+
+  --color-stage: #1a1a1a;
+  --color-stage-2: #242424;
+  --color-stage-bar: #0e0e0e;
+  --color-danger: #e02828;
+  --color-warning: #f2a93b;
+  --color-success: #19a654;
+  --color-purple: #6e1e9a;
+
+  --shadow-popover: 0 6px 24px rgba(19, 22, 25, 0.12), 0 1px 3px rgba(19, 22, 25, 0.08);
+  --shadow-panel: 0 12px 40px rgba(19, 22, 25, 0.16);
+
+  --animate-slide-in: slide-in 180ms ease-out;
+  --animate-fade-in: fade-in 150ms ease-out;
+  --animate-float-up: float-up 3s ease-out forwards;
+
+  @keyframes slide-in {
+    from { transform: translateX(24px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes float-up {
+    0% { transform: translateY(0) scale(0.8); opacity: 0; }
+    15% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+    100% { transform: translateY(-260px) scale(1); opacity: 0; }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink-2);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Thin, unobtrusive scrollbars like the Zoom web client. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c4c8cf transparent;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
