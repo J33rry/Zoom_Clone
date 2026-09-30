@@ -349,6 +349,7 @@ The app is platform-agnostic; everything is configured through environment varia
 
 - **Frontend** (e.g. Vercel): set `NEXT_PUBLIC_API_URL` (and optionally `NEXT_PUBLIC_WS_URL`) to the public backend URL.
 - **Backend** (e.g. Render or Railway): run `uvicorn app.main:app --host 0.0.0.0 --port $PORT` with **one worker**. Either mount a persistent disk and set `DATABASE_URL=sqlite:////data/zoom_clone.db`, or use Turso (see [config](#config)), which needs no disk. Set `FRONTEND_URL` and `CORS_ORIGINS` to the frontend URL. The host must support WebSockets.
+- **Python 3.12 is required on the host.** The Turso driver has no prebuilt package for Python 3.14, so a newer default (as on Render) tries to compile it from Rust source and the build fails. The repo pins 3.12 with `.python-version`; on Render you can also set the `PYTHON_VERSION=3.12.8` environment variable.
 - Serve both over **HTTPS**, since browsers block camera and mic access on insecure origins, and `wss://` is required from an https page.
 
 <br>
