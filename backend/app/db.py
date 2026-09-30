@@ -8,19 +8,28 @@ from app.config import get_settings
 
 settings = get_settings()
 
-engine = create_engine(
-    settings.database_url,
+def _connect_args() -> dict:
+    if settings.is_remote_libsql:
+        return {"auth_token": settings.database_auth_token}
     # SQLite connections are used across FastAPI's threadpool.
-    connect_args={"check_same_thread": False} if settings.database_url.startswith("sqlite") else {},
-)
+    if settings.database_url.startswith("sqlite:"):
+        return {"check_same_thread": False}
+    return {}
+
+
+engine = create_engine(settings.sqlalchemy_url, connect_args=_connect_args(), pool_pre_ping=settings.is_remote_libsql)
 
 
 @event.listens_for(engine, "connect")
 def _enable_sqlite_foreign_keys(dbapi_connection, _connection_record) -> None:
     """SQLite ignores FOREIGN KEY constraints unless this pragma is on."""
-    if settings.database_url.startswith("sqlite"):
-        cursor = dbapi_connection.cursor()
+    cursor = dbapi_connection.cursor()
+    try:
         cursor.execute("PRAGMA foreign_keys=ON")
+    except Exception:
+        # A remote Turso database already enforces foreign keys and may reject the pragma.
+        pass
+    finally:
         cursor.close()
 
 

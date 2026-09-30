@@ -1,17 +1,68 @@
-# Zoom Workplace Clone
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/header.svg"/><img src="assets/header.svg" alt="Zoom Workplace Clone"/></picture>
 
-A video-conferencing web app modelled on the Zoom Workplace web client. It covers the Home dashboard, instant and scheduled meetings, joining by Meeting ID or invite link, and a live meeting room with real peer-to-peer audio/video, chat, reactions, screen sharing and host controls.
+<div align="center">
 
-| Layer    | Tech |
-|----------|------|
-| Frontend | Next.js 16 (App Router, client-rendered SPA), React 19, TypeScript, Tailwind CSS v4, lucide-react |
-| Backend  | Python 3.12, FastAPI, SQLAlchemy 2, Pydantic 2, native WebSockets |
-| Database | SQLite |
-| Realtime | WebRTC full mesh for media; FastAPI WebSocket for signalling and room events |
+<a href="#features"><picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/FEATURES-0d1117?style=flat-square&logoColor=ffffff"/><img src="https://img.shields.io/badge/FEATURES-ffffff?style=flat-square&logoColor=000000" alt="FEATURES"/></picture></a>
+<a href="#quickstart"><picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/QUICKSTART-0d1117?style=flat-square&logoColor=ffffff"/><img src="https://img.shields.io/badge/QUICKSTART-ffffff?style=flat-square&logoColor=000000" alt="QUICKSTART"/></picture></a>
+<a href="#schema"><picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/SCHEMA-0d1117?style=flat-square&logoColor=ffffff"/><img src="https://img.shields.io/badge/SCHEMA-ffffff?style=flat-square&logoColor=000000" alt="SCHEMA"/></picture></a>
+<a href="#api"><picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/API-0d1117?style=flat-square&logoColor=ffffff"/><img src="https://img.shields.io/badge/API-ffffff?style=flat-square&logoColor=000000" alt="API"/></picture></a>
+<a href="#deploy"><picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/DEPLOY-0d1117?style=flat-square&logoColor=ffffff"/><img src="https://img.shields.io/badge/DEPLOY-ffffff?style=flat-square&logoColor=000000" alt="DEPLOY"/></picture></a>
 
----
+</div>
 
-## Features
+<br>
+
+<a id="overview"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s01.svg"/><img src="assets/s01.svg" alt="01 overview"/></picture>
+
+A video-conferencing web app modelled on the **Zoom Workplace** web client. It covers the Home
+dashboard, instant and scheduled meetings, joining by Meeting ID or invite link, and a live
+meeting room with real peer-to-peer audio/video, chat, reactions, screen sharing and host controls.
+
+```
+core      dashboard · instant meeting · join · schedule
+bonus     host controls · responsive layout
+media     webrtc full mesh, fastapi websocket signalling
+auth      none — a seeded default user is signed in
+tests     30 backend (services, rest api, realtime, host tools)
+```
+
+<br>
+
+<a id="stack"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s02.svg"/><img src="assets/s02.svg" alt="02 stack"/></picture>
+
+<div align="center">
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Next.js%2016-0d1117?style=flat-square&logo=nextdotjs&logoColor=ffffff"/><img src="https://img.shields.io/badge/Next.js%2016-ffffff?style=flat-square&logo=nextdotjs&logoColor=000000" alt="Next.js 16"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/React%2019-0d1117?style=flat-square&logo=react&logoColor=ffffff"/><img src="https://img.shields.io/badge/React%2019-ffffff?style=flat-square&logo=react&logoColor=000000" alt="React 19"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/TypeScript-0d1117?style=flat-square&logo=typescript&logoColor=ffffff"/><img src="https://img.shields.io/badge/TypeScript-ffffff?style=flat-square&logo=typescript&logoColor=000000" alt="TypeScript"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Tailwind%20CSS%20v4-0d1117?style=flat-square&logo=tailwindcss&logoColor=ffffff"/><img src="https://img.shields.io/badge/Tailwind%20CSS%20v4-ffffff?style=flat-square&logo=tailwindcss&logoColor=000000" alt="Tailwind CSS v4"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Python%203.12-0d1117?style=flat-square&logo=python&logoColor=ffffff"/><img src="https://img.shields.io/badge/Python%203.12-ffffff?style=flat-square&logo=python&logoColor=000000" alt="Python 3.12"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/FastAPI-0d1117?style=flat-square&logo=fastapi&logoColor=ffffff"/><img src="https://img.shields.io/badge/FastAPI-ffffff?style=flat-square&logo=fastapi&logoColor=000000" alt="FastAPI"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/SQLAlchemy%202-0d1117?style=flat-square&logo=sqlalchemy&logoColor=ffffff"/><img src="https://img.shields.io/badge/SQLAlchemy%202-ffffff?style=flat-square&logo=sqlalchemy&logoColor=000000" alt="SQLAlchemy 2"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Pydantic%202-0d1117?style=flat-square&logo=pydantic&logoColor=ffffff"/><img src="https://img.shields.io/badge/Pydantic%202-ffffff?style=flat-square&logo=pydantic&logoColor=000000" alt="Pydantic 2"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/SQLite-0d1117?style=flat-square&logo=sqlite&logoColor=ffffff"/><img src="https://img.shields.io/badge/SQLite-ffffff?style=flat-square&logo=sqlite&logoColor=000000" alt="SQLite"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Turso-0d1117?style=flat-square&logo=turso&logoColor=ffffff"/><img src="https://img.shields.io/badge/Turso-ffffff?style=flat-square&logo=turso&logoColor=000000" alt="Turso"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/WebRTC-0d1117?style=flat-square&logo=webrtc&logoColor=ffffff"/><img src="https://img.shields.io/badge/WebRTC-ffffff?style=flat-square&logo=webrtc&logoColor=000000" alt="WebRTC"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/WebSockets-0d1117?style=flat-square&logoColor=ffffff"/><img src="https://img.shields.io/badge/WebSockets-ffffff?style=flat-square&logoColor=000000" alt="WebSockets"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/pytest-0d1117?style=flat-square&logo=pytest&logoColor=ffffff"/><img src="https://img.shields.io/badge/pytest-ffffff?style=flat-square&logo=pytest&logoColor=000000" alt="pytest"/></picture>
+
+</div>
+
+<br>
+
+| layer | tech |
+| --- | --- |
+| frontend | Next.js 16 (App Router, client-rendered SPA), React 19, TypeScript, Tailwind CSS v4, lucide-react |
+| backend | Python 3.12, FastAPI, SQLAlchemy 2, Pydantic 2, native WebSockets |
+| database | SQLite (local file) or Turso (hosted SQLite) |
+| realtime | WebRTC full mesh for media; FastAPI WebSocket for signalling and room events |
+
+<br>
+
+<a id="features"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s03.svg"/><img src="assets/s03.svg" alt="03 features"/></picture>
 
 **Core**
 - **Home dashboard:** live clock, the New meeting / Join / Schedule tiles, a calendar day view with a date-picker popover and Today/‹/› navigation, a meeting details slide-over, and **Recent meetings**.
@@ -47,9 +98,10 @@ A video-conferencing web app modelled on the Zoom Workplace web client. It cover
   - The host can also mute, rename or remove individual participants, and end the meeting for everyone.
 - **Responsive:** a bottom tab bar on phones; stacked list/detail on the Meetings tab; form labels above inputs; a single-column video grid; secondary room controls folded into *More*.
 
----
+<br>
 
-## Getting started
+<a id="quickstart"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s04.svg"/><img src="assets/s04.svg" alt="04 quickstart"/></picture>
 
 Prerequisites: Python 3.12+ and Node.js 20+.
 
@@ -89,13 +141,15 @@ cd backend && pytest       # 30 tests: services, REST API, realtime and Host too
 cd frontend && npm run lint && npx tsc --noEmit
 ```
 
----
+<br>
 
-## Environment variables
+<a id="config"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s05.svg"/><img src="assets/s05.svg" alt="05 config"/></picture>
 
 | Variable | Where | Default | Purpose |
 |---|---|---|---|
-| `DATABASE_URL` | backend | `sqlite:///./zoom_clone.db` | SQLAlchemy URL |
+| `DATABASE_URL` | backend | `sqlite:///./zoom_clone.db` | A local SQLite file, or a Turso URL (`libsql://<db>.turso.io`) |
+| `DATABASE_AUTH_TOKEN` | backend | — | Turso auth token (secret). Only read for `libsql://` URLs |
 | `FRONTEND_URL` | backend | `http://localhost:3000` | Base URL used in invite links |
 | `CORS_ORIGINS` | backend | `http://localhost:3000` | Comma-separated allowed origins |
 | `SEED_ON_STARTUP` | backend | `true` | Seed sample data when the DB is empty |
@@ -104,9 +158,21 @@ cd frontend && npm run lint && npx tsc --noEmit
 | `NEXT_PUBLIC_WS_URL` | frontend | derived from the API URL (`http→ws`) | WebSocket base URL |
 | `NEXT_PUBLIC_TURN_URL` / `_USERNAME` / `_CREDENTIAL` | frontend | — | Optional TURN server for strict NATs |
 
----
+### Using Turso instead of a local file
 
-## Project structure
+The backend talks to Turso through the `sqlalchemy-libsql` dialect, so nothing else in the code changes. In `backend/.env`:
+
+```
+DATABASE_URL=libsql://<your-db>-<your-org>.turso.io
+DATABASE_AUTH_TOKEN=<token from `turso db tokens create <your-db>`>
+```
+
+On first start the app creates the tables and seeds the sample data in the empty Turso database, exactly as it does for a local file. Keep `.env` out of version control (it is already in `.gitignore`); the token is a secret. Remove both lines to go back to the local SQLite file.
+
+<br>
+
+<a id="structure"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s06.svg"/><img src="assets/s06.svg" alt="06 structure"/></picture>
 
 ```
 backend/app/
@@ -123,24 +189,28 @@ backend/app/
 backend/tests/        pytest suite
 
 frontend/src/
-  app/(app)/          routes: home, meetings, meetings/schedule, meetings/[id]/edit,
-                      j/[code] (pre-join), wc/[code] (meeting room), chat/contacts/settings
-  components/shell/   TopBar, SideRail/BottomNav, AppShell, CurrentUser context
+  app/(app)/          routes inside the Workplace shell: home, meetings,
+                      meetings/schedule, meetings/[id]/edit, chat/contacts/settings
+  app/(meeting)/      full-screen routes: j/[code] (join screen), wc/[code] (meeting room)
+  components/shell/   TopBar, SideRail/BottomNav, AppChrome, AppProviders, CurrentUser
   components/home/    Clock, ActionTiles, CalendarCard, MeetingDetailsPanel, RecentMeetings
   components/meetings JoinMeetingModal, MeetingForm (+ form state), MeetingList,
                       MeetingDetailPane, PreJoin
-  components/room/    MeetingRoom (orchestrator), VideoGrid/VideoTile, ControlBar,
-                      RoomHeader, ParticipantsPanel, ChatPanel, reactions, banners
+  components/room/    MeetingDock (full / mini window), MeetingRoom (orchestrator),
+                      VideoGrid/VideoTile, ControlBar, RoomHeader, ParticipantsPanel,
+                      ChatPanel, HostToolsPanel, reactions, banners
   components/ui/      Button, Modal, ConfirmDialog, Toast, form controls, Avatar
   hooks/              useLocalMedia, useMeetingSocket, useWebRTCMesh, useAsync,
                       useStartMeeting, useIdle, useNow, useLatest, useClickOutside
-  lib/                api client, time-zone math, invite-link parsing, session storage
+  lib/                api client, time-zone math, invite-link parsing, session storage,
+                      activeMeeting store
   types/api.ts        API + realtime message types (mirrors the backend schemas)
 ```
 
----
+<br>
 
-## Database design
+<a id="schema"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s07.svg"/><img src="assets/s07.svg" alt="07 schema"/></picture>
 
 ```mermaid
 erDiagram
@@ -213,9 +283,10 @@ erDiagram
 - Enums are stored as constrained strings (`native_enum=False`), which is portable to Postgres.
 - `chat_messages.recipient_id` (nullable FK) marks direct messages; NULL means the group chat. Columns added after the first release are applied to existing SQLite files by a small additive migration on startup (`db.migrate_schema`).
 
----
+<br>
 
-## API
+<a id="api"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s08.svg"/><img src="assets/s08.svg" alt="08 api"/></picture>
 
 REST, prefix `/api`:
 
@@ -243,9 +314,10 @@ WebSocket `/ws/meetings/{meeting_id}?pid={participant_id}`:
 
 Host tools state (`RoomSettings`: waiting_room, locked, hide_profile_pictures, allow_chat / rename / unmute / video / share, share_mode, share_takeover) lives with the live room in memory and resets each session, as in Zoom.
 
----
+<br>
 
-## Key implementation decisions
+<a id="decisions"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s09.svg"/><img src="assets/s09.svg" alt="09 decisions"/></picture>
 
 - **WebRTC full mesh.** Every participant holds one `RTCPeerConnection` per other participant. There's no media server, which makes it simple and free, and it's ideal for small meetings of about 2–6 people. Larger meetings would need an SFU such as LiveKit or mediasoup.
 - **No offer glare.** Only the newcomer sends offers (to everyone listed in `room-state`); existing members only answer.
@@ -254,9 +326,10 @@ Host tools state (`RoomSettings`: waiting_room, locked, hide_profile_pictures, a
 - **Resilience.** A dropped socket reconnects with the same participant session. A live meeting ends only after it has been empty for `EMPTY_ROOM_GRACE_SECONDS`, so a refresh doesn't kill it.
 - **Thin routers.** Business rules live in `services/` and raise domain errors that one exception handler maps to HTTP codes. This keeps the logic unit-testable without HTTP.
 
----
+<br>
 
-## Assumptions and limitations
+<a id="limits"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s10.svg"/><img src="assets/s10.svg" alt="10 limits"/></picture>
 
 - **No login.** The first seeded user ("Jerry NotAbout") is treated as signed in via `get_current_user`. Any browser pressing **Start** on a meeting joins as its host; people who join through the Join dialog or an invite link join as participants. Swapping that one dependency for real auth is the only backend change needed.
 - **The Edit form deliberately mirrors the Schedule form.** Recurring meetings, invitees, whiteboards, docs and encryption options from Zoom's full edit page are out of scope.
@@ -267,12 +340,26 @@ Host tools state (`RoomSettings`: waiting_room, locked, hide_profile_pictures, a
 - Chat, Contacts and Settings in the side rail are placeholders, as are search, notifications and calendar connection.
 - The sample-data user name and IDs match the provided design screenshots.
 
----
+<br>
 
-## Deployment notes
+<a id="deploy"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/s11.svg"/><img src="assets/s11.svg" alt="11 deploy"/></picture>
 
 The app is platform-agnostic; everything is configured through environment variables.
 
 - **Frontend** (e.g. Vercel): set `NEXT_PUBLIC_API_URL` (and optionally `NEXT_PUBLIC_WS_URL`) to the public backend URL.
-- **Backend** (e.g. Render or Railway): run `uvicorn app.main:app --host 0.0.0.0 --port $PORT` with **one worker**. Mount a persistent disk and point `DATABASE_URL` at it, e.g. `sqlite:////data/zoom_clone.db`. Set `FRONTEND_URL` and `CORS_ORIGINS` to the frontend URL. The host must support WebSockets.
+- **Backend** (e.g. Render or Railway): run `uvicorn app.main:app --host 0.0.0.0 --port $PORT` with **one worker**. Either mount a persistent disk and set `DATABASE_URL=sqlite:////data/zoom_clone.db`, or use Turso (see [config](#config)), which needs no disk. Set `FRONTEND_URL` and `CORS_ORIGINS` to the frontend URL. The host must support WebSockets.
 - Serve both over **HTTPS**, since browsers block camera and mic access on insecure origins, and `wss://` is required from an https page.
+
+<br>
+
+<div align="center">
+
+<a href="https://github.com/J33rry"><picture><source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/GITHUB-0d1117?style=flat-square&logo=github&logoColor=ffffff"/><img src="https://img.shields.io/badge/GITHUB-ffffff?style=flat-square&logo=github&logoColor=000000" alt="GITHUB"/></picture></a>
+
+<br>
+<br>
+
+<sub><code>status: built for the scaler sde fullstack assignment</code></sub>
+
+</div>
