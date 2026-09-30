@@ -151,7 +151,7 @@ cd frontend && npm run lint && npx tsc --noEmit
 | `DATABASE_URL` | backend | `sqlite:///./zoom_clone.db` | A local SQLite file, or a Turso URL (`libsql://<db>.turso.io`) |
 | `DATABASE_AUTH_TOKEN` | backend | — | Turso auth token (secret). Only read for `libsql://` URLs |
 | `FRONTEND_URL` | backend | `http://localhost:3000` | Base URL used in invite links |
-| `CORS_ORIGINS` | backend | `http://localhost:3000` | Comma-separated allowed origins |
+| `CORS_ORIGINS` | backend | `http://localhost:3000` | Comma-separated allowed origins. `FRONTEND_URL` is always allowed as well |
 | `SEED_ON_STARTUP` | backend | `true` | Seed sample data when the DB is empty |
 | `EMPTY_ROOM_GRACE_SECONDS` | backend | `30` | How long an empty live meeting waits before it ends |
 | `NEXT_PUBLIC_API_URL` | frontend | `http://localhost:8000` | Backend base URL |
